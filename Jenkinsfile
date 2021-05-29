@@ -13,7 +13,9 @@ pipeline{
     }
     stage("Push Docker Image"){
         when {
-            branch 'master'
+          expression{
+           BRANCH_NAME == 'master'
+          }
         }
         steps{
             script{
